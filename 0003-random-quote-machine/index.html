@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Random Quote Generator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script>
+    var clist = ['#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50', '#f39c12', '#d35400', '#c0392b', '#7f8c8d', '#cfcaff'];
+
+    function changeColor() {
+      var color = clist[Math.floor(Math.random() * 10)];
+      $('body').css('background', color);
+      $('#quote').css('color', color);
+    }
+
+    var url = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=";
+    var qmessage = '';
+
+    function getNewQuote() {
+      $.ajax({
+        url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
+        success: function(data) {
+          var post = data.shift(); // The data is an array of posts. Grab the first one.
+          qmessage = post.content + " " + post.title;
+          $('#author').text(post.title);
+          $('#quote').html(post.content);
+          $("#tweet").attr("href", url + qmessage.replace(/<\/?[^>]+(>|$)/g, ""));
+        },
+        cache: false
+      });
+
+      changeColor();
+
+    }
+
+    $(document).ready(function() {
+
+      getNewQuote();
+      $('#refresh').click(function() {
+        getNewQuote();
+      });
+    });
+  </script>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      background: #cfcaff;
+      padding: 20px;
+    }
+
+    .outbox {
+      width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      margin-top: 150px;
+      padding: 10px;
+    }
+
+    .inbox {
+      padding: 10px;
+    }
+
+    .share {
+      font-size: 1.3em;
+    }
+
+    button#refresh {
+      width: 100%;
+      height: 30px;
+    }
+
+    #author {
+      font-style: italic;
+    }
+
+    .qfooter {
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+    <div class="outbox">
+      <div class="inbox">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="text-center">
+                <i class="fa fa-quote-left fa-3x fa-pull-left fa-border" aria-hidden="true"></i>
+                <span id="quote">a</span>
+              </h3>
+            <h3 class="text-right"><small id="author"></small></h3>
+          </div>
+        </div>
+        <div class="row qfooter">
+          <div class="col-xs-3"> </div>
+          <div class="col-xs-3">
+            <a id="tweet" title="Tweet this quote!" target="_blank" class="button" href="#"><span class="share"></span><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+          </div>
+          <div class="col-xs-3">
+            <button id="refresh">Refresh</button>
+          </div>
+          <div class="col-xs-3"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

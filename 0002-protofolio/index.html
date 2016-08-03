@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Protofolio Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      /* needed for container min-height */
+      background: gray;
+      font-family: arial, sans-serif;
+      font-size: 20px;
+      color: #666;
+    }
+
+    footer {
+      color: #000;
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 2.5em;
+      background-color: violet;
+      vertical-align: middle;
+    }
+
+    .block {
+      min-height: 300px;
+      padding: 50px 10px 50px 10px;
+    }
+
+    .block-yellow {
+      background-color: yellow;
+    }
+
+    .block-white {
+      background-color: white;
+      color: black;
+    }
+
+    .block-black {
+      background-color: black;
+      color: white;
+    }
+
+    .img-icon {
+      border-radius: 50%;
+    }
+
+    .img-margin {
+      margin: 20px 0 20px 0;
+    }
+
+    .hr_heading {
+      max-width: 400px;
+      border-top: solid 3px;
+      text-align: center;
+    }
+
+    .form-item,
+    .form-item input,
+    .form-item textarea {
+      width: 100%;
+    }
+
+    .form-item lable {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" class="navbar-toggle collapsed">
+        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      <nav id="navbar" role="navigation" class="collapse navbar-collapse" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#top" class="scrollable">About</a></li>
+          <li class=""><a href="#portfolio" class="scrollable">Portfolio</a></li>
+          <li class=""><a href="#contact" class="scrollable">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div id="top" class="container">
+    <div class="row block block-black" style="margin-top:50px;">
+      <div class="col-xs-12 col-md-4"> <img class="img-responsive center-block img-icon" src="http://dummyimage.com/420x420/f00/fff&text=Icon"> </div>
+
+      <div class="col-xs-12 col-md-8">
+        <p style="margin-top: 40px">I'm Mohamed an Engineer, with extensive practical experience in Embedded Software, Product Desing and project management.
+        </p>
+        <hr />
+        <p>Software Engineer - Product Designer - Web Developer</p>
+      </div>
+    </div>
+    <div id="portfolio" class="row block block-white">
+
+      <div class="row">
+        <h2 class="text-center"> PORTFOLIO </h2>
+        <hr class="hr_heading"></hr>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 img-margin">
+          <img class="img-responsive img-thumbnail center-block" src="http://dummyimage.com/420x420/f00/fff&text=Project1">
+        </div>
+        <div class="col-xs-12 col-sm-6 img-margin">
+          <img class="img-responsive img-thumbnail center-block" src="http://dummyimage.com/420x420/0f0/fff&text=Project2">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 img-margin">
+          <img class="img-responsive img-thumbnail center-block" src="http://dummyimage.com/420x420/00f/fff&text=Project3">
+        </div>
+        <div class="col-xs-12 col-sm-6 img-margin">
+          <img class="img-responsive img-thumbnail center-block" src="http://dummyimage.com/420x420/ff0/fff&text=Project4">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 img-margin">
+          <img class="img-responsive img-thumbnail center-block" src="http://dummyimage.com/420x420/f0f/fff&text=Project5">
+        </div>
+        <div class="col-xs-12 col-sm-6 img-margin">
+          <img class="img-responsive img-thumbnail center-block" src="http://dummyimage.com/420x420/fa0/fff&text=Project6">
+        </div>
+      </div>
+
+
+    </div>
+    <div id="contact" class="row block block-black">
+      <div class="row">
+        <h2 class="text-center text-uppercase"> Contact Me </h2>
+        <hr class="hr_heading"></hr>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-6 pull-right">
+          <p> Want to get in touch with me? just feel free to drop me a line anytime. </p>
+          <p> I promise to reply A.S.A.P.</p>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+          <form id="contactForm" novalidate="">
+            <div class="form-item">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="First Name, Last Name" required="">
+            </div>
+            <div class="form-item">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" placeholder="email@domain.com" required="">
+            </div>
+            <div class="form-item">
+              <label for="phone">Phone Number</label>
+              <input id="phone" type="tel" placeholder="Phone Number" required="">
+            </div>
+            <div class="form-item">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Message" required=""></textarea>
+            </div>
+            <br>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <div class="row block block-white">
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="row">
+            <h2 class="text-center text-uppercase"> About This page </h2>
+            <p class="text-center">Made from Chennai, India.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="row">
+            <h2 class="text-center text-uppercase"> Follow Me </h2>
+          </div>
+          <div class="row">
+            <p class="text-center">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+              </span>
+              </a>
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x"></i>
+              </span>
+              </a>
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x"></i>
+              </span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="text-center">MT © 2016. All Rights Reversed </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
